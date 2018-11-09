@@ -1,0 +1,251 @@
+.review {
+    margin-top: 28px;
+    &__intro {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 28px;
+        span:not(.u-is-hidden) + span {
+            display: none;
+        }
+    }
+    &__toggler {
+        color: $yellow;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    &__header {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 6px;
+    }
+    &__preview {
+        background: rgba(#000, .7);
+        color: #fff;
+        padding: 15px;
+        overflow: hidden;
+        font-size: 14px;
+        display: grid;
+        grid-template-columns: 75px auto;
+        grid-column-gap: 30px;
+
+    }
+    &__headline {
+        margin-bottom: 15px;
+        grid-column-end: span 2;
+    }
+
+    &__username {
+        color: $yellow;
+    }
+
+    &__avatar {
+        border: 1px solid $yellow;
+        height: 77px;
+        width: 77px;
+        background: #000;
+
+        img {
+
+            width: 77px;
+            height: 77px;
+        }
+
+    }
+    &__ratingOutput {
+        float: right;
+    }
+    &__text {
+        color: #fff;
+        min-height: 200px;
+        b, i, em {
+            color: $yellow;
+        }
+
+        i, em {
+            font-style: italic;
+
+        }
+
+        blockquote {
+            font-style: italic;
+            font-size: 24px;
+            line-height: 120%;
+            margin: 20px 0;
+            &:before, &:after {
+                content: '\201c';
+                color: $yellow;
+                font-size: 64px;
+                line-height: 24px;
+                vertical-align: top;
+                position: relative;
+                left: -5px;
+                top: 9px;
+
+            }
+            &:after {
+                content: '\201d';
+                left: -6px;
+                top: 26px;
+            }
+        }
+    }
+    &__textPlaceholder {
+        opacity: 0.7;
+        font-size: 12px;
+        font-style: italic;
+
+    }
+    &__rate {
+        float: right;
+        @media (max-width: $breakpoint-medium) {
+           float: none;
+            display: block;
+            clear: both;
+
+        }
+
+    }
+
+    &__editor {
+        background: url("../images/modal-bg.png");
+        border: 3px solid #3FC5CB;
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 260px auto;
+        grid-column-gap: 20px;
+
+        @media (max-width: $breakpoint-medium) {
+            grid-template-columns: 1fr;
+
+        }
+
+    }
+    &__legend {
+        grid-column: span 2;
+        text-align: center;
+        span {
+            background: #fff;
+            display: inline-block;
+            border-radius: 15px;
+            padding: 8px 16px;
+            border: 3px solid #3FC5CB;
+            position: relative;
+            top: -35px;
+            text-transform: uppercase;
+
+        }
+
+        @media (max-width: $breakpoint-medium) {
+            grid-column: span 1;
+
+        }
+
+    }
+
+    &__left {
+        grid-column: span 1;
+    }
+    &__right {
+        grid-column: span 1;
+    }
+
+    &__avatarInput {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+
+        & + label {
+            @extend .form__input;
+            height: 100px;
+            padding: 13px;
+            font-style: italic;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            cursor: pointer;
+            img {
+                width: 70px;
+                height: 70px;
+                box-sizing: border-box;
+                border-radius: 5px;
+                vertical-align: middle;
+                margin-left: 13px;
+
+                &.is-empty {
+                    opacity: 0.2;
+                    border: 2px solid #000;
+                    padding: 13px;
+
+                }
+            }
+
+        }
+
+    }
+    &__textinput {
+        @extend .form__input;
+        min-height: 220px;
+        height: auto;
+        background: #fff;
+
+        b {
+            font-weight: normal;
+
+            &:before {
+                content: '[b]';
+
+            }
+            &:after {
+                content: '[/b]';
+            }
+        }
+
+        i {
+
+            &:before {
+                content: '[i]';
+
+            }
+            &:after {
+                content: '[/i]';
+            }
+        }
+
+        blockquote {
+
+            &:before {
+                content: '[q]';
+
+            }
+            &:after {
+                content: '[/q]';
+            }
+        }
+    }
+    &__buttons {
+        padding: 15px 0;
+        border: none;
+        text-align: right;
+
+    }
+
+    &__buttonsEditorial {
+        float: left;
+        @media (max-width: $breakpoint-medium) {
+            float: none;
+            clear: both;
+            margin-bottom: 20px;
+            text-align: left;
+
+            & .button {
+                min-width: 0;
+                width: 32%;
+            }
+
+        }
+    }
+}

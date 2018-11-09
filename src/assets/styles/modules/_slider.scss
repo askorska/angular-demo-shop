@@ -1,0 +1,59 @@
+.slide {
+
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+
+    &--curr {
+
+        opacity: 1;
+        height: auto;
+    }
+
+    p {
+        color: #fff;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 30px;
+        text-align: center;
+        font-size: 14px;
+        font-style: italic;
+        padding: 0 15px 15px 15px;
+
+    }
+}
+
+.slider {
+    &__parent {
+        position: relative;
+        margin-bottom: -30px;
+    }
+
+    &__prev {
+        position: absolute;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        bottom: calc(50% - 50px);
+        background: url("../images/arrow.svg") 50% no-repeat;
+        cursor: pointer;
+        opacity: 0.1;
+        transition: opacity 0.2s ease-in;
+
+        &:hover {
+            opacity: 1;
+        }
+
+    }
+
+    &__next {
+        @extend .slider__prev;
+        right: 0;
+        left: auto;
+        transform: scaleX(-1);
+
+    }
+}

@@ -1,0 +1,22 @@
+<div class="modal__overlay">
+  <div class="modal__container">
+    <h3 class="modal__header">Login to “Demo Shop”</h3>
+    <div class="modal__body">
+      <form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form__group">
+          <label class="form__label" for="login">Your login:</label>
+          <input class="form__input login__input login__input--name" type="text" formControlName="login" id="login"
+                 required placeholder=" " pattern="[A-Za-z]{3,7}">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="password">Your password:</label>
+          <input class="form__input login__input login__input--password" type="password" id="password"
+                 formControlName="password">
+        </div>
+        <div class="modal__buttons">
+          <button class="button button--primary button--large" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

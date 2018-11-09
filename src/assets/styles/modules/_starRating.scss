@@ -1,0 +1,34 @@
+.starRating {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+
+    &__star {
+        background-image: url(../images/star-inactive.svg);
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        display: inline-block;
+        height: 22px;
+        width: 22px;
+
+        &--filled {
+            background-image: url(../images/star-active.svg);
+        }
+    }
+
+    &--clickable {
+        cursor: pointer;
+        pointer-events: auto;
+
+        &:hover .starRating__star {
+            background-image: url(../images/star-active.svg);
+        }
+
+        span:hover ~ .starRating__star {
+            background-image: url(../images/star-inactive.svg);
+        }
+
+    }
+}

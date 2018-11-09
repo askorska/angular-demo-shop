@@ -1,0 +1,14 @@
+<header class="header">
+  <div class="container">
+    <a href="/" class="header__logo"><img src="../../assets/images/logo.svg" alt=""></a>
+    <span class="header__user" href="">
+      <ng-container *ngIf="userName; else loginLink">
+        Hello, {{userName}} <a class="header__userLogout" (click)="logout()"></a>
+      </ng-container>
+      <ng-template #loginLink>
+        <a  routerLink="/login">Log in</a>
+      </ng-template>
+    </span>
+  </div>
+</header>
+

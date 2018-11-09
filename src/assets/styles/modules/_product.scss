@@ -1,0 +1,92 @@
+.product {
+    background: url("../images/modal-bg.png");
+
+    &__figure {
+        padding: 0;
+        margin-bottom: -30px;
+        position: relative;
+
+    }
+    &__rate {
+        background-color: rgba(0, 0, 0, 0.75);
+        box-sizing: border-box;
+        position: relative;
+        bottom: 30px;
+        height: 30px;
+        padding: 5px 15px;
+        width: 100%;
+        font-size: 0;
+        pointer-events: none;
+    }
+
+    &__details {
+        padding: 20px 20px 20px 0;
+        display: grid;
+        grid-template-rows: 1fr auto;
+
+        @media (max-width: $breakpoint-medium) {
+            padding-left: 20px;
+        }
+
+        p {
+            margin-bottom: 16px;
+
+            & > a {
+                color: #1B745F
+            }
+        }
+
+    }
+
+    &__header {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 23px;
+        border-bottom: 2px solid #3FC5CB;
+        padding-bottom: 6px;
+        margin-bottom: 9px;
+    }
+
+    &__bottomline {
+        overflow: hidden;
+        margin-top: 35px;
+
+    }
+
+    &__price {
+        font-size: 24px;
+        line-height: 120%;
+        float: left;
+
+    }
+
+    &__currency {
+        color: #288575;
+    }
+
+    &__amount {
+        font-size: 16px;
+    }
+
+    &__button {
+        float: right;
+    }
+
+    &--listed {
+        .product__description {
+            font-size: 14px;
+        }
+    }
+
+    &--single {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 30px;
+
+        @media (max-width: $breakpoint-medium) {
+            grid-template-columns: 1fr;
+
+        }
+    }
+
+}
