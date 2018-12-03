@@ -4,17 +4,30 @@
     <div class="modal__body">
       <form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form__group">
+          <p class="login__errormsg" *ngIf="loginFailed">You enter wrong login or password</p>
           <label class="form__label" for="login">Your login:</label>
-          <input class="form__input login__input login__input--name" type="text" formControlName="login" id="login"
-                 required placeholder=" " pattern="[A-Za-z]{3,7}">
+          <input class="form__input login__input login__input--name" type="text" formControlName="login" id="login">
+          <p class="form__errormsg" *ngIf="(login.hasError('required') && login.touched)">
+            Login can't be empty.
+          </p>
+          <p class="form__errormsg" *ngIf="(login.hasError('minlength') && login.touched)">
+            Name must be at least 3 characters long.
+          </p>
+          <p class="form__errormsg" *ngIf="(login.hasError('pattern') && login.touched)">
+            Name can contain only english letters.
+          </p>
+
         </div>
         <div class="form__group">
           <label class="form__label" for="password">Your password:</label>
           <input class="form__input login__input login__input--password" type="password" id="password"
                  formControlName="password">
+          <p class="form__errormsg" *ngIf="(password.hasError('required') && password.touched)">
+            Password can't be empty.
+          </p>
         </div>
         <div class="modal__buttons">
-          <button class="button button--primary button--large" type="submit">Submit</button>
+          <button class="button button--primary button--large" type="submit" [disabled]="!loginForm.valid">Submit</button>
         </div>
       </form>
     </div>

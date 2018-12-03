@@ -1,38 +1,45 @@
 .login {
-    max-width: 450px;
-    margin: 0 auto;
+  max-width: 450px;
+  margin: 0 auto;
 
-    &__input {
-        height: 60px;
-        border-radius: 10px;
-        font-size: 24px;
-        border-width: 3px;
+  &__errormsg {
+    color: #C80000;
+    font-size: 120%;
+    text-align: center;
+    margin-bottom: 12px;
+  }
 
-        &--name {
-            background: #fff url("../images/login-inactive.svg") no-repeat 99%;
+  &__input {
+    height: 60px;
+    border-radius: 10px;
+    font-size: 24px;
+    border-width: 3px;
 
-            &:focus {
-                background-image: url("../images/login-active.svg");
-            }
+    &--name {
+      background: #fff url("../images/login-inactive.svg") no-repeat 99%;
 
-            &:invalid:not(:placeholder-shown) {
-                background-image: url("../images/login-invalid.svg");
-            }
+      &:focus {
+        background-image: url("../images/login-active.svg");
+      }
 
-        }
+      &.ng-invalid.ng-touched:not(:focus) {
+        background-image: url("../images/login-invalid.svg");
+      }
 
-        &--password {
-            background: #fff url("../images/password-inactive.svg") no-repeat 97%;
-            background-size: 40px;
-            &:focus {
-                background-image: url("../images/password-active.svg");
-            }
-            &:invalid:not(:placeholder-shown) {
-                background-image: url("../images/password-invalid.svg");
-            }
-
-        }
     }
+
+    &--password {
+      background: #fff url("../images/password-inactive.svg") no-repeat 97%;
+      background-size: 40px;
+      &:focus {
+        background-image: url("../images/password-active.svg");
+      }
+      &.ng-invalid.ng-touched:not(:focus) {
+        background-image: url("../images/password-invalid.svg");
+      }
+
+    }
+  }
 }
 
 

@@ -29,9 +29,13 @@
             border-color: #3FC5CB;
         }
 
-        &:invalid:not(:placeholder-shown) {
+        &.ng-invalid.ng-touched:not(:focus) {
             outline: none;
             border-color: #ff0000;
         }
     }
+  &__errormsg {
+    color: #C80000;
+
+  }
 }

@@ -30,7 +30,7 @@ export class AuthService {
         let token = res.headers.get('session-token');
         this.saveSessionToken(token);
         this.isUserLogged = true;
-        this.setNewUser(username, token);
+        this.setNewUser(username);
         return true
       } else return false;
     }));
@@ -44,26 +44,17 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  saveSessionToken(token) {
-    localStorage.setItem('sessionToken', token);
-  }
-
-  getUserData(name: string): Observable<any> {
-    return this.http.get(`${API_URL}users`).pipe(map((res: any) => {
-      return res.filter(user => user.login === name)[0];
-    }));
-  }
-
-  setNewUser(name: string, token) {
+   setNewUser(name: string) {
     var userData$ = this.getUserData(name);
     let userData: object;
     userData$.subscribe(
       (res) => {
-        userData = res;
+        [userData] = res;
         if (userData.hasOwnProperty('login')){
-          localStorage.setItem('user', JSON.stringify(userData));
+          let user = this.updateUser(userData);
+          localStorage.setItem('user', JSON.stringify(user));
         }
-        this.updateUser(userData)
+
       },
       (err) => {
         console.log("Couldn't get user data");
@@ -81,8 +72,19 @@ export class AuthService {
     }
   }
 
-  updateUser(userData) {
+ private updateUser(userData) {
     let user = new User(userData.id, userData.login, userData.roleId as Role);
     this.currentUser$.next(user);
+    return user;
+  }
+
+  private saveSessionToken(token) {
+    localStorage.setItem('sessionToken', token);
+  }
+
+  private getUserData(name: string): Observable<any> {
+    return this.http.get(`${API_URL}users`).pipe(map((res: any) => {
+      return res.filter(user => user.login === name);
+    }));
   }
 }

@@ -16,11 +16,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.auth.currentUser$.subscribe(
       (res) => {
-        this.userName = res ? res.name : null;
+        this.userName = res ? res.login : null;
       }
     )
   }
-
   logout() {
     this.auth.logout();
   }
